@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  git-server-gssapi:
+    build: .
+    image: git-server-gssapi:1
+    container_name: ${GIT_SERVER_GSSAPI:-git-server-gssapi}
+    ports:
+      - 80:80
+#    env_file:
+#      - ./.proxy.env
+    volumes:
+      - ./git:/var/lib/git
+      - ./log:/opt/log
